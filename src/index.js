@@ -21,6 +21,17 @@ import HolidayThemes from './Components/HolidayThemes/HolidayThemes';
 import Country from './Components/HoneymoonPackages/Country';
 import FamilyPackageCountry from './Components/FamilyPackages/FamilyPackageCountry';
 import HolidayPackCountry from './Components/HolidayPackages/HolidayPackCountry';
+import SingleHotel from './Components/Hotels/SingleHotel';
+import SingleDestination from './Components/DestinationGuide/SingleDestination';
+import SeasonalPackagePlace from './Components/HolidayThemes/SeasonalPackagePlace';
+import AdventurePlace from './Components/HolidayThemes/AdventurePlace';
+import FamilyPlace from './Components/HolidayThemes/FamilyPlace';
+import  NaturePlace from './Components/HolidayThemes/NaturePlace';
+import  HoneymoonPlace from './Components/HolidayThemes/HoneymoonPlace';
+import  WildLifePlace from './Components/HolidayThemes/WildLifePlace';
+import FriendsPlace from './Components/HolidayThemes/FriendsPlace';
+import WaterActivitiesPlace from './Components/HolidayThemes/WaterActivitiesPlace';
+import ReligiousPlace from './Components/HolidayThemes/ReligiousPlace';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,8 +57,19 @@ const router = createBrowserRouter(
       <Route path='holidaydeals' element={<HolidayDeals />} />
       <Route path='luxaryhotes' element={<LuxaryHotels />} />
       <Route path='hotels' element={<Hotels />} />
+      <Route path='hotels/:country' element={<SingleHotel />} />
       <Route path='destinationguide' element={<DestinationGuide />} />
+      <Route path='destinationguide/:country' element={<SingleDestination />} />
       <Route path='holidaythemes' element={<HolidayThemes />} />
+      <Route path='seasonalpackages' element={<SeasonalPackagePlace />} />
+      <Route path='adventure' element={<AdventurePlace />} />
+      <Route path='family' element={<FamilyPlace />} />
+      <Route path='nature' element={<NaturePlace />} />
+      <Route path='honeymoon' element={<HoneymoonPlace />} />
+      <Route path='wildlife' element={<WildLifePlace />} />
+      <Route path='friends' element={<FriendsPlace />} />
+      <Route path='wateractivities' element={<WaterActivitiesPlace />} />
+      <Route path='religious' element={<ReligiousPlace />} />
       <Route path='*' element={<div>page not found</div>} />
     </Route>
   )

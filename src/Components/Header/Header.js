@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { NavLink,Link } from 'react-router-dom';
 import { logo } from '../../img/index';
 import Card from '../Card/Card';
+import ThemeCard from '../HolidayThemes/ThemeCard';
 
 
 function Header() {
  const [hoveredItem, setHoveredItem] = useState(null);
+ const [hoveredTheme, setHoveredTheme] = useState(false);
 
  const items = [
    {
@@ -103,8 +105,116 @@ function Header() {
    },
    // Add more items as needed
  ];
+ const items2 = [
+   {
+     text: 'Hotels',
+     img: 'image1',
+     link: 'hotels',
+     content: {
+       indian: [
+         'Kerala',
+         'Andaman',
+         'Himachal',
+         'Sikkim',
+         'Kashmir',
+         'Rajasthan',
+         'Goa',
+         'Uttarakhand',
+       ],
+       international: [
+         'Bali',
+         'Maldives',
+         'SriLanka',
+         'Europe',
+         'Malaysia',
+         'Turkey',
+         'Thailand',
+         'Mauritius',
+         'Dubai',
+         'Singapore',
+         'Switzerland',
+         'Seychelles',
+       ],
+     },
+   },
+   {
+     text: 'Destination Guid',
+     link: 'destinationguide',
+     img: 'image2',
+     content: {
+       indian: [
+         'Kerala',
+         'Andaman',
+         'Himachal',
+         'Sikkim',
+         'Kashmir',
+         'Rajasthan',
+         'Goa',
+         'Uttarakhand',
+       ],
+       international: [
+         'Bali',
+         'Maldives',
+         'SriLanka',
+         'Europe',
+         'Malaysia',
+         'Turkey',
+         'Thailand',
+         'Mauritius',
+         'Dubai',
+         'Singapore',
+         'Switzerland',
+         'Seychelles',
+       ],
+     },
+   },
+
+   // Add more items as needed
+ ];
+
+ const themes = [
+   {
+     name: 'Seasonal Packages',
+     link: 'seasonalpackages',
+   },
+   {
+     name: 'Adventure',
+     link: 'adventure',
+   },
+   {
+     name: 'Family',
+     link: 'family',
+   },
+   {
+     name: 'Nature',
+     link: 'nature',
+   },
+   {
+     name: 'Honeymoon',
+     link: 'honeymoon',
+   },
+   {
+     name: 'WildLife',
+     link: 'wildlife',
+   },
+   {
+     name: 'Friends',
+     link: 'friends',
+   },
+   {
+     name: 'Water Activities',
+     link: 'wateractivities',
+   },
+   {
+     name: 'Religious',
+     link: 'religious',
+   },
+ ];
  const close=()=>{
   setHoveredItem(null);
+ }
+ const closetheme =()=>{
+  setHoveredTheme(false);
  }
 
 
@@ -283,107 +393,55 @@ function Header() {
                     Luxary Hotels
                   </NavLink>
                 </li>
-                {/* <li>
-                  <NavLink
-                    to='/honeymoonpackages'
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-orange-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                    }
-                  >
-                    honeymoon packages
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/familypackages'
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-orange-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                    }
-                  >
-                    family packages
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/holidaypackages'
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-orange-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                    }
-                  >
-                    Holiday packages
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/holidaydeals'
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-orange-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                    }
-                  >
-                    Holiday deals
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/luxaryhotes'
-                    className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-orange-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                    }
-                  >
-                    Luxary Hotels
-                  </NavLink>
-                </li> */}
+               
               </ul>
             </div>
             <div>
               <ul className='flex gap-5 mr-2 items-center'>
-                <li>
-                  <NavLink
-                    to='/hotels'
-                    className={({ isActive }) =>
-                      `block py-2 text-white duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                    }
+                {items2.map((item, index) => (
+                  <li
+                    key={index}
+                    onMouseEnter={() => setHoveredItem(index)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    onClick={close}
                   >
-                    Hotels
-                  </NavLink>
+                    <NavLink
+                      to={`/${item.link}`}
+                      className={({ isActive }) =>
+                        `block py-2 duration-200 border-b text-white border-gray-100 ${
+                          isActive ? 'text-purple-700' : 'text - gray - 700'
+                        } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                      }
+                    >
+                      {item.text}
+                    </NavLink>
+                    {hoveredItem === index && (
+                      <Card
+                        closeoption={close}
+                        img={item.img}
+                        content={item.content}
+                        link={item.link}
+                      />
+                    )}
+                  </li>
+                ))}
+
+                <li
+                  onMouseEnter={() => setHoveredTheme(true)}
+                  onMouseLeave={() => setHoveredTheme(false)}
+                  onClick={close}
+                  className={
+                    `block py-2 duration-200 border-b text-white border-gray-100 
+                     lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                  }
+                >
+                 
+                  Holiday Themes
+                  {hoveredTheme && (
+                    <ThemeCard closeoption={closetheme} theme={themes} />
+                  )}
                 </li>
 
-                <li>
-                  <NavLink
-                    to='/destinationguide'
-                    className={({ isActive }) =>
-                      `block py-2 text-white duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                    }
-                  >
-                    Destination Guide
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/holidaythemes'
-                    className={({ isActive }) =>
-                      `block py-2 text-white duration-200 border-b border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                    }
-                  >
-                    Holiday themes
-                  </NavLink>
-                </li>
                 <li className='border-2 rounded bg-purple-700 text-white   p-2 '>
                   Plan My Holiday
                 </li>
