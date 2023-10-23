@@ -18,6 +18,9 @@ import LuxaryHotels from './Components/LuxaryHotels/LuxaryHotels';
 import Hotels from './Components/Hotels/Hotels';
 import DestinationGuide from './Components/DestinationGuide/DestinationGuide';
 import HolidayThemes from './Components/HolidayThemes/HolidayThemes';
+import Country from './Components/HoneymoonPackages/Country';
+import FamilyPackageCountry from './Components/FamilyPackages/FamilyPackageCountry';
+import HolidayPackCountry from './Components/HolidayPackages/HolidayPackCountry';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,8 +32,17 @@ const router = createBrowserRouter(
       <Route path='offers' element={<Offers />} />
       <Route path='blog' element={<Blog />} />
       <Route path='honeymoonpackages' element={<HoneymoonPackages />} />
+      <Route path='honeymoonpackages/:country' element={<Country />} />
+
       <Route path='familypackages' element={<FamilyPackages />} />
+      <Route
+        path='familypackages/:country'
+        element={<FamilyPackageCountry />}
+      />
+
       <Route path='holidaypackages' element={<HolidayPackages />} />
+      <Route path='holidaypackages/:country' element={<HolidayPackCountry />} />
+
       <Route path='holidaydeals' element={<HolidayDeals />} />
       <Route path='luxaryhotes' element={<LuxaryHotels />} />
       <Route path='hotels' element={<Hotels />} />

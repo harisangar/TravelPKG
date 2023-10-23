@@ -2,7 +2,7 @@ import React from 'react'
 
 const FamilyPackages = () => {
   return (
-    <div>
+    <div className='bg-purple-100 h-80'>
       <h1>FamilyPackages page....</h1>
     </div>
   );
