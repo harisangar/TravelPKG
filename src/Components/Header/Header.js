@@ -5,6 +5,7 @@ import Card from '../Card/Card';
 import ThemeCard from '../HolidayThemes/ThemeCard';
 
 
+
 function Header() {
  const [hoveredItem, setHoveredItem] = useState(null);
  const [hoveredTheme, setHoveredTheme] = useState(false);
@@ -174,40 +175,50 @@ function Header() {
 
  const themes = [
    {
-     name: 'Seasonal Packages',
+     name: 'Seasonal',
      link: 'seasonalpackages',
+     img: 'beaches',
+     
    },
    {
      name: 'Adventure',
      link: 'adventure',
+     img: 'adventure',
    },
    {
      name: 'Family',
      link: 'family',
+     img: 'family',
    },
    {
      name: 'Nature',
      link: 'nature',
+     img: 'nature',
    },
    {
      name: 'Honeymoon',
      link: 'honeymoon',
+     img: 'honeymoon',
    },
    {
      name: 'WildLife',
      link: 'wildlife',
+     img: 'wildlife',
    },
    {
      name: 'Friends',
      link: 'friends',
+     img: 'friends_group',
    },
    {
      name: 'Water Activities',
      link: 'wateractivities',
+     img: 'wateractivities',
    },
    {
      name: 'Religious',
      link: 'religious',
+     img: 'religious',
    },
  ];
  const close=()=>{
