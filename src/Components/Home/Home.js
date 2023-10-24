@@ -1,7 +1,9 @@
 import React from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import Explore from '../shared/explore';
 import { img1, img2, img3, img4, img5 } from '../../img/index';
+import ThemeExplore from '../ThemeExplore/ThemeExplore';
 
 function Home() {
 
@@ -54,9 +56,9 @@ function Home() {
         </h1>
       </div>
 
-      <div className='  p-10 m-10 rounded-lg bg-white/30 backdrop-blur-lg realtive'>
+      <div className='  p-10 r bg-white realtive'>
         <AliceCarousel
-          style={{ backgroundColor: 'red', padding: '10px' }}
+          // style={{ backgroundColor: 'red', padding: '10px' }}
           autoPlay={true}
           infinite={true}
           disableSlideInfo={true}
@@ -66,6 +68,12 @@ function Home() {
           mouseTracking
           items={items}
         />
+      </div>
+      <div className='flex justify-center m-5'>
+        <Explore />
+      </div>
+      <div className='mx-20 '>
+        <ThemeExplore />
       </div>
     </>
   );

@@ -18,7 +18,7 @@ function Login() {
     <div className='min-h-screen  flex  items-center justify-center bg-purple-200'>
       <div className=' flex  w-2/4 bg-white rounded-lg shadow-md'>
         <div className='w-2/4 rounded bg-purple-500 px-10 flex items-center'>
-          <img src={travel} alt='travel' />
+          {/* <img src={travel} alt='travel' /> */}
         </div>
         <div className='p-10 w-full '>
           <h2 className='text-2xl font-semibold text-center mb-4'>Sign In</h2>
