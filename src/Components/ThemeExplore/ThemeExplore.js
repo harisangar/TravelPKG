@@ -88,20 +88,21 @@ const ThemeExplore = () => {
           {slides.map((d, index) => (
             <div className='bg-white h-auto text-black rounded-xl'>
               <div className='h-56 rounded-t-xl bg-purple-400 flex justify-center items-center'>
-                <img src={d.image} alt='' className='h-44 rounded-full' />
+                <img
+                  src={d.image}
+                  alt=''
+                  className='object-cover  rounded-full'
+                />
               </div>
 
               <div className='flex flex-col justify-center items-center gap-4 p-4'>
                 <p className='text-md font-semibold'>{d.title}</p>
                 <p>{d.description}</p>
-                
               </div>
             </div>
           ))}
         </Slider>
       </div>
-
-      
     </div>
   );
 };

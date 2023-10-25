@@ -16,7 +16,7 @@ const Card = ({ content,link,img ,closeoption}) => {
       }
     }, [img]);
 
-
+console.log(link)
     
   return (
     <>

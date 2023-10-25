@@ -72,7 +72,7 @@ function Home() {
           <Slider {...settings}>
             {items.map((item, index) => (
               <img
-                className='h-[450px] rounded-lg shadow'
+                className='h-[450px] object-cover rounded-lg shadow'
                 src={item.image}
                 alt='img'
               />

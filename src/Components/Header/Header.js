@@ -6,8 +6,10 @@ import ThemeCard from '../HolidayThemes/ThemeCard';
 
 
 
+
 function Header() {
  const [hoveredItem, setHoveredItem] = useState(null);
+ const [hoveredItemtwo, setHoveredItemtwo] = useState(null);
  const [hoveredTheme, setHoveredTheme] = useState(false);
 
  const items = [
@@ -224,6 +226,9 @@ function Header() {
  const close=()=>{
   setHoveredItem(null);
  }
+ const closetwo = () => {
+   setHoveredItemtwo(null);
+ };
  const closetheme =()=>{
   setHoveredTheme(false);
  }
@@ -412,8 +417,8 @@ function Header() {
                 {items2.map((item, index) => (
                   <li
                     key={index}
-                    onMouseEnter={() => setHoveredItem(index)}
-                    onMouseLeave={() => setHoveredItem(null)}
+                    onMouseEnter={() => setHoveredItemtwo(index)}
+                    onMouseLeave={() => setHoveredItemtwo(null)}
                     onClick={close}
                   >
                     <NavLink
@@ -426,9 +431,9 @@ function Header() {
                     >
                       {item.text}
                     </NavLink>
-                    {hoveredItem === index && (
+                    {hoveredItemtwo === index && (
                       <Card
-                        closeoption={close}
+                        closeoption={closetwo}
                         img={item.img}
                         content={item.content}
                         link={item.link}
@@ -442,7 +447,7 @@ function Header() {
                   onMouseLeave={() => setHoveredTheme(false)}
                   onClick={close}
                   className={
-                    `block py-2 duration-200 border-b text-white border-gray-100 
+                    `block py-2 duration-200 cursor-pointer border-b text-white border-gray-100 
                      lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
                   }
                 >

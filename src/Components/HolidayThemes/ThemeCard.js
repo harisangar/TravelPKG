@@ -16,7 +16,7 @@ const ThemeCard = ({ theme, closeoption }) => {
             key={index}
           >
             <img
-              className='h-12'
+              className='h-12 object-cover'
               src={require(`../../img/themes/${item.img}.jpeg`)}
               alt='img'
             />
