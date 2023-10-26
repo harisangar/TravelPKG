@@ -15,9 +15,9 @@ function Login() {
     console.log('Email:', email, 'Password:', password);
   };
   return (
-    <div className='min-h-screen  flex  items-center justify-center bg-purple-200'>
-      <div className=' flex  w-2/4 bg-white rounded-lg shadow-md'>
-        <div className='w-2/4 rounded bg-purple-500 px-10 flex items-center'>
+    <div className='min-h-screen  m-2 flex  items-center justify-center bg-purple-200'>
+      <div className=' flex  m-2 md:w-2/4 bg-white rounded-lg shadow-md'>
+        <div className='md:w-2/4 rounded bg-purple-500 px-10 flex items-center'>
           {/* <img src={travel} alt='travel' /> */}
         </div>
         <div className='p-10 w-full '>

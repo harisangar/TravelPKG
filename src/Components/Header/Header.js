@@ -1,242 +1,237 @@
 import React, { useState } from 'react';
-import { NavLink,Link } from 'react-router-dom';
-import { logo } from '../../img/index';
+import { NavLink, Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import ThemeCard from '../HolidayThemes/ThemeCard';
 
-
-
-
 function Header() {
- const [hoveredItem, setHoveredItem] = useState(null);
- const [hoveredItemtwo, setHoveredItemtwo] = useState(null);
- const [hoveredTheme, setHoveredTheme] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredItemtwo, setHoveredItemtwo] = useState(null);
+  const [hoveredTheme, setHoveredTheme] = useState(false);
+  const [ismobile,setIsMobile]= useState(false);
 
- const items = [
-   {
-     text: 'Honeymoon Packages',
-     img: 'image1',
-     link: 'honeymoonpackages',
-     content: {
-       indian: [
-         'Kerala',
-         'Andaman',
-         'Himachal',
-         'Sikkim',
-         'Kashmir',
-         'Rajasthan',
-         'Goa',
-         'Uttarakhand',
-       ],
-       international: [
-         'Bali',
-         'Maldives',
-         'SriLanka',
-         'Europe',
-         'Malaysia',
-         'Turkey',
-         'Thailand',
-         'Mauritius',
-         'Dubai',
-         'Singapore',
-         'Switzerland',
-         'Seychelles',
-       ],
-     },
-   },
-   {
-     text: 'Family Packages',
-     link: 'familypackages',
-     img: 'image2',
-     content: {
-       indian: [
-         'Kerala',
-         'Andaman',
-         'Himachal',
-         'Sikkim',
-         'Kashmir',
-         'Rajasthan',
-         'Goa',
-         'Uttarakhand',
-       ],
-       international: [
-         'Bali',
-         'Maldives',
-         'SriLanka',
-         'Europe',
-         'Malaysia',
-         'Turkey',
-         'Thailand',
-         'Mauritius',
-         'Dubai',
-         'Singapore',
-         'Switzerland',
-         'Seychelles',
-       ],
-     },
-   },
-   {
-     text: 'Holiday Packages',
-     link: 'holidaypackages',
-     img: 'image3',
-     content: {
-       indian: [
-         'Kerala',
-         'Andaman',
-         'Himachal',
-         'Sikkim',
-         'Kashmir',
-         'Rajasthan',
-         'Goa',
-         'Uttarakhand',
-       ],
-       international: [
-         'Bali',
-         'Maldives',
-         'SriLanka',
-         'Europe',
-         'Malaysia',
-         'Turkey',
-         'Thailand',
-         'Mauritius',
-         'Dubai',
-         'Singapore',
-         'Switzerland',
-         'Seychelles',
-       ],
-     },
-   },
-   // Add more items as needed
- ];
- const items2 = [
-   {
-     text: 'Hotels',
-     img: 'image1',
-     link: 'hotels',
-     content: {
-       indian: [
-         'Kerala',
-         'Andaman',
-         'Himachal',
-         'Sikkim',
-         'Kashmir',
-         'Rajasthan',
-         'Goa',
-         'Uttarakhand',
-       ],
-       international: [
-         'Bali',
-         'Maldives',
-         'SriLanka',
-         'Europe',
-         'Malaysia',
-         'Turkey',
-         'Thailand',
-         'Mauritius',
-         'Dubai',
-         'Singapore',
-         'Switzerland',
-         'Seychelles',
-       ],
-     },
-   },
-   {
-     text: 'Destination Guid',
-     link: 'destinationguide',
-     img: 'image2',
-     content: {
-       indian: [
-         'Kerala',
-         'Andaman',
-         'Himachal',
-         'Sikkim',
-         'Kashmir',
-         'Rajasthan',
-         'Goa',
-         'Uttarakhand',
-       ],
-       international: [
-         'Bali',
-         'Maldives',
-         'SriLanka',
-         'Europe',
-         'Malaysia',
-         'Turkey',
-         'Thailand',
-         'Mauritius',
-         'Dubai',
-         'Singapore',
-         'Switzerland',
-         'Seychelles',
-       ],
-     },
-   },
+  const items = [
+    {
+      text: 'Honeymoon Packages',
+      img: 'image1',
+      link: 'honeymoonpackages',
+      content: {
+        indian: [
+          'Kerala',
+          'Andaman',
+          'Himachal',
+          'Sikkim',
+          'Kashmir',
+          'Rajasthan',
+          'Goa',
+          'Uttarakhand',
+        ],
+        international: [
+          'Bali',
+          'Maldives',
+          'SriLanka',
+          'Europe',
+          'Malaysia',
+          'Turkey',
+          'Thailand',
+          'Mauritius',
+          'Dubai',
+          'Singapore',
+          'Switzerland',
+          'Seychelles',
+        ],
+      },
+    },
+    {
+      text: 'Family Packages',
+      link: 'familypackages',
+      img: 'image2',
+      content: {
+        indian: [
+          'Kerala',
+          'Andaman',
+          'Himachal',
+          'Sikkim',
+          'Kashmir',
+          'Rajasthan',
+          'Goa',
+          'Uttarakhand',
+        ],
+        international: [
+          'Bali',
+          'Maldives',
+          'SriLanka',
+          'Europe',
+          'Malaysia',
+          'Turkey',
+          'Thailand',
+          'Mauritius',
+          'Dubai',
+          'Singapore',
+          'Switzerland',
+          'Seychelles',
+        ],
+      },
+    },
+    {
+      text: 'Holiday Packages',
+      link: 'holidaypackages',
+      img: 'image3',
+      content: {
+        indian: [
+          'Kerala',
+          'Andaman',
+          'Himachal',
+          'Sikkim',
+          'Kashmir',
+          'Rajasthan',
+          'Goa',
+          'Uttarakhand',
+        ],
+        international: [
+          'Bali',
+          'Maldives',
+          'SriLanka',
+          'Europe',
+          'Malaysia',
+          'Turkey',
+          'Thailand',
+          'Mauritius',
+          'Dubai',
+          'Singapore',
+          'Switzerland',
+          'Seychelles',
+        ],
+      },
+    },
+    // Add more items as needed
+  ];
+  const items2 = [
+    {
+      text: 'Hotels',
+      img: 'image1',
+      link: 'hotels',
+      content: {
+        indian: [
+          'Kerala',
+          'Andaman',
+          'Himachal',
+          'Sikkim',
+          'Kashmir',
+          'Rajasthan',
+          'Goa',
+          'Uttarakhand',
+        ],
+        international: [
+          'Bali',
+          'Maldives',
+          'SriLanka',
+          'Europe',
+          'Malaysia',
+          'Turkey',
+          'Thailand',
+          'Mauritius',
+          'Dubai',
+          'Singapore',
+          'Switzerland',
+          'Seychelles',
+        ],
+      },
+    },
+    {
+      text: 'Destination Guid',
+      link: 'destinationguide',
+      img: 'image2',
+      content: {
+        indian: [
+          'Kerala',
+          'Andaman',
+          'Himachal',
+          'Sikkim',
+          'Kashmir',
+          'Rajasthan',
+          'Goa',
+          'Uttarakhand',
+        ],
+        international: [
+          'Bali',
+          'Maldives',
+          'SriLanka',
+          'Europe',
+          'Malaysia',
+          'Turkey',
+          'Thailand',
+          'Mauritius',
+          'Dubai',
+          'Singapore',
+          'Switzerland',
+          'Seychelles',
+        ],
+      },
+    },
 
-   // Add more items as needed
- ];
+    // Add more items as needed
+  ];
 
- const themes = [
-   {
-     name: 'Seasonal',
-     link: 'seasonalpackages',
-     img: 'beaches',
-     
-   },
-   {
-     name: 'Adventure',
-     link: 'adventure',
-     img: 'adventure',
-   },
-   {
-     name: 'Family',
-     link: 'family',
-     img: 'family',
-   },
-   {
-     name: 'Nature',
-     link: 'nature',
-     img: 'nature',
-   },
-   {
-     name: 'Honeymoon',
-     link: 'honeymoon',
-     img: 'honeymoon',
-   },
-   {
-     name: 'WildLife',
-     link: 'wildlife',
-     img: 'wildlife',
-   },
-   {
-     name: 'Friends',
-     link: 'friends',
-     img: 'friends_group',
-   },
-   {
-     name: 'Water Activities',
-     link: 'wateractivities',
-     img: 'wateractivities',
-   },
-   {
-     name: 'Religious',
-     link: 'religious',
-     img: 'religious',
-   },
- ];
- const close=()=>{
-  setHoveredItem(null);
- }
- const closetwo = () => {
-   setHoveredItemtwo(null);
- };
- const closetheme =()=>{
-  setHoveredTheme(false);
- }
-
+  const themes = [
+    {
+      name: 'Seasonal',
+      link: 'seasonalpackages',
+      img: 'beaches',
+    },
+    {
+      name: 'Adventure',
+      link: 'adventure',
+      img: 'adventure',
+    },
+    {
+      name: 'Family',
+      link: 'family',
+      img: 'family',
+    },
+    {
+      name: 'Nature',
+      link: 'nature',
+      img: 'nature',
+    },
+    {
+      name: 'Honeymoon',
+      link: 'honeymoon',
+      img: 'honeymoon',
+    },
+    {
+      name: 'WildLife',
+      link: 'wildlife',
+      img: 'wildlife',
+    },
+    {
+      name: 'Friends',
+      link: 'friends',
+      img: 'friends_group',
+    },
+    {
+      name: 'Water Activities',
+      link: 'wateractivities',
+      img: 'wateractivities',
+    },
+    {
+      name: 'Religious',
+      link: 'religious',
+      img: 'religious',
+    },
+  ];
+  const close = () => {
+    setHoveredItem(null);
+  };
+  const closetwo = () => {
+    setHoveredItemtwo(null);
+  };
+  const closetheme = () => {
+    setHoveredTheme(false);
+  };
 
   return (
     <>
-      <header className='shadow-lg bg-white/30 top-0 rounded-lg pb-1.5 '>
+      <header className=' hidden lg:block shadow-lg bg-white/30 top-0 rounded-lg pb-1.5 '>
         <nav className='bg-white  mb-1 border-gray-200  py-2.5'>
           <div className='ml-2  flex flex-wrap justify-between items-center mx-auto '>
             <Link to='/'>
@@ -399,7 +394,7 @@ function Header() {
                 </li>
                 <li>
                   <NavLink
-                    to='/luxaryhotes'
+                    to='/luxaryhotels'
                     className={({ isActive }) =>
                       `block py-2 duration-200 border-b  text-white border-gray-100 ${
                         isActive ? 'text-purple-700' : 'text - gray - 700'
@@ -409,7 +404,6 @@ function Header() {
                     Luxary Hotels
                   </NavLink>
                 </li>
-               
               </ul>
             </div>
             <div>
@@ -446,12 +440,9 @@ function Header() {
                   onMouseEnter={() => setHoveredTheme(true)}
                   onMouseLeave={() => setHoveredTheme(false)}
                   onClick={close}
-                  className={
-                    `block py-2 duration-200 cursor-pointer border-b text-white border-gray-100 
-                     lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                  }
+                  className={`block py-2 duration-200 cursor-pointer border-b text-white border-gray-100 
+                     lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`}
                 >
-                 
                   Holiday Themes
                   {hoveredTheme && (
                     <ThemeCard closeoption={closetheme} theme={themes} />
@@ -466,8 +457,46 @@ function Header() {
           </div>
         </nav>
       </header>
+      <div className='lg:hidden relative  m-2'>
+        <div className='flex justify-between items-center'>
+          <div>
+            <Link to='/'>
+              <h1 className=' shadow text-purple-800 bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
+                <i className=' text-purple-800 ri-riding-line'></i> Travel
+                <span className='text-red-500 '>X</span>
+              </h1>
+            </Link>
+          </div>
+          <div className='text-[20px]' onClick={() => setIsMobile(true)}>
+            <i class='ri-menu-line'></i>
+          </div>
+        </div>
+        <div className=''>
+          {ismobile && (
+            <div className=' bg-white z-[99999] absolute top-0 left-0  w-full '>
+              <div
+                className='text-[30px] text-red-500 flex justify-end'
+                onClick={() => setIsMobile(false)}
+              >
+                <i class='ri-close-circle-line'></i>
+              </div>
+              <div>
+                <ul className='flex flex-col m-2 '>
+                  <li className='mb-5 py-2 border-b'>Packages</li>
+                  <li className='mb-5 py-2 border-b'>Hotels</li>
+                  <li className='mb-5 py-2 border-b'>Hotels</li>
+                  <li className='mb-5 py-2 border-b'>DestinationGuides</li>
+                  <li className='mb-5 py-2 border-b'>HolidayThremes</li>
+                  <li className='mb-5 py-2 border-b'>HolidayThemes</li>
+                  <li className='mb-5 py-2 border-b'>LuxaryHotels</li>
+                </ul>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 }
 
-export default Header
+export default Header;

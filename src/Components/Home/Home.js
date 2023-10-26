@@ -72,14 +72,14 @@ function Home() {
           <Slider {...settings}>
             {items.map((item, index) => (
               <img
-                className='h-[450px] object-cover rounded-lg shadow'
+                className='h-[200px] md:h-[450px] object-cover rounded-lg shadow'
                 src={item.image}
                 alt='img'
               />
             ))}
           </Slider>
         </div>
-        <div className='absolute top-[300px] text-white left-[450px]'>
+        <div className='hidden lg:block absolute top-[300px] text-white left-[450px]'>
           <div className=' flex flex-col items-center mt-5'>
             <h1 className='font-bold text-6xl '>Customize & Book</h1>
             <h1 className='font-bold text-3xl'>Amazing Holiday Packages</h1>
@@ -90,9 +90,11 @@ function Home() {
         </div>
       </div>
       <div className=' flex flex-col items-center mt-5'>
-        <h1 className='font-bold text-5xl '>Customize & Book</h1>
-        <h1 className='font-bold text-3xl'>Amazing Holiday Packages</h1>
-        <h1 className='font-light'>
+        <h1 className='font-bold  text-xl md:text-5xl '>Customize & Book</h1>
+        <h1 className='font-bold text-xl md:text-3xl'>
+          Amazing Holiday Packages
+        </h1>
+        <h1 className='text-sm p-2 md:font-light'>
           650+ Travel Agents serving 65+ Destinations worldwide
         </h1>
       </div>
@@ -101,11 +103,11 @@ function Home() {
         <Explore />
       </div>
       <div className='bg-gray-300 mb-3 mx-3 rounded-lg p-5 flex flex-col justify-center  font-semibold'>
-        <div className='flex justify-between px-40 items-center'>
-          <h1 className='text-2xl text-purple-800'>
+        <div className='flex justify-between md:px-40 items-center'>
+          <h1 className='text-xl md:text-2xl text-purple-800'>
             Explore Packages By Themes
           </h1>
-          <h1 className='text-sm'>
+          <h1 className='hidden md:block text-sm'>
             <span className='mx-1'>
               <i class='ri-phone-line'></i>
             </span>

@@ -3,10 +3,10 @@ import  {img2} from '../../img/index.js'
 
 const PackageDetailscard = ({country}) => {
   return (
-    <div className=' w-max p-5 shadow-lg mb-5  rounded'>
-      <div className='mainrow flex gap-2'>
-        <div className='firstrow flex p-2 mr-5'>
-          <img className='w-40 mr-2 rounded' src={img2} alt='img' />
+    <div className='  border lg:ml-20 w-max md:p-5 p-2 shadow-lg mb-5  rounded'>
+      <div className='mainrow flex flex-col md:flex-row  gap-2'>
+        <div className='firstrow flex flex-col md:flex-row p-2 md:mr-5'>
+          <img className='w-40 md:w-40 mr-2 rounded' src={img2} alt='img' />
           <div className='firstcol flex flex-col'>
             <h1 className='font-bold'>Charismatic {country} Tour Package</h1>
             <h1>
@@ -29,20 +29,20 @@ const PackageDetailscard = ({country}) => {
             </h1>
           </div>
         </div>
-        <div className='secondcol flex flex-col items-end justify-around'>
+        <div className='secondcol p-2 flex flex-col md:items-end justify-around'>
           <h1 className='text-blue-400 font-bold mb-2'>Add To Compare</h1>
 
           <div className=' flex flex-wrap gap-0.5 mb-2 w-max'>
-            <h1 className='border border-gray-800 w-min rounded-[50px] p-1 '>
-              waterfal
+            <h1 className='text-sm  border-[2px] border-purple-800 w-min rounded-[50px] p-1 '>
+              waterfall
             </h1>
-            <h1 className='border border-gray-800 w-min rounded-[50px] p-1 '>
+            <h1 className='text-sm  border-[2px] border-purple-800 w-min rounded-[50px] p-1 '>
               adventure
             </h1>
-            <h1 className='border border-gray-800 w-min rounded-[50px] p-1 '>
+            <h1 className='text-sm border-[2px] border-purple-800 w-min rounded-[50px] p-1 '>
               family
             </h1>
-            <h1 className='border border-gray-800 w-min rounded-[50px] p-1 '>
+            <h1 className='text-sm border-[2px] border-purple-800 w-min rounded-[50px] p-1 '>
               friends
             </h1>
           </div>
@@ -55,7 +55,7 @@ const PackageDetailscard = ({country}) => {
           </div>
         </div>
       </div>
-      <div className='flex justify-between border-gray-800 border-t'>
+      <div className='flex flex-col md:flex-row justify-between border-gray-800 border-t'>
         <div className='flex gap-1'>
           <div className='flex flex-col justify-center items-center mr-1 '>
             <i class='ri-hotel-line'></i>

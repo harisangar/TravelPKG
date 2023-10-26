@@ -55,7 +55,7 @@ const router = createBrowserRouter(
       <Route path='holidaypackages/:country' element={<HolidayPackCountry />} />
 
       <Route path='holidaydeals' element={<HolidayDeals />} />
-      <Route path='luxaryhotes' element={<LuxaryHotels />} />
+      <Route path='luxaryhotels' element={<LuxaryHotels />} />
       <Route path='hotels' element={<Hotels />} />
       <Route path='hotels/:country' element={<SingleHotel />} />
       <Route path='destinationguide' element={<DestinationGuide />} />

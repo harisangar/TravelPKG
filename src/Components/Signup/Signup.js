@@ -20,15 +20,15 @@ function Signup() {
      // Add your signup logic here, such as sending the data to an API
    };
   return (
-    <div className='min-h-screen flex items-center justify-center bg-purple-200'>
-      <div className=' flex   w-2/4  bg-white rounded-lg shadow-md'>
-        <div className='w-2/4 rounded p-5 bg-purple-500 flex items-center '>
+    <div className='min-h-screen m-2 flex items-center justify-center bg-purple-200'>
+      <div className=' flex m-2 md:w-2/4  bg-white rounded-lg shadow-md'>
+        <div className='md:w-2/4 rounded p-5 bg-purple-500 flex items-center '>
           {/* <img src={travel2} alt='travel' /> */}
         </div>
         <div className='p-10  w-full rounded-lg'>
           <h2 className='text-2xl font-semibold text-center mb-4'>Sign Up</h2>
           <form onSubmit={handleSubmit}>
-            <div className='mb-4'>
+            <div className='md:mb-4'>
               <label
                 className='block text-gray-700 text-sm font-bold mb-2'
                 htmlFor='name'

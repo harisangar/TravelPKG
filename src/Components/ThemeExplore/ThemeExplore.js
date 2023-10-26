@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {
@@ -14,10 +14,12 @@ import {
 } from '../../img/themes/index';
 import Slider from 'react-slick';
 
+
 const ThemeExplore = () => {
   const sliderClick = () => {
     console.log('clicked');
   };
+  
   const slides = [
     {
       image: adventure,
@@ -74,20 +76,42 @@ const ThemeExplore = () => {
       clickEvent: sliderClick,
     },
   ];
-  const settings={
-    dots:true,
-    infinite:true,
-    speed:500,
-    slidesToShow:5,
-    slidesToScroll:1
+   const [slidesToShow, setSlidesToShow] = useState(5);
+     useEffect(() => {
+       // Adjust the number of slides to show based on screen width
+       const handleResize = () => {
+         if (window.innerWidth < 768) {
+           setSlidesToShow(1);
+         } else {
+           setSlidesToShow(5);
+         }
+       };
+
+       // Initial adjustment
+       handleResize();
+
+       // Add a listener to adjust slidesToShow on window resize
+       window.addEventListener('resize', handleResize);
+
+       // Clean up the listener when the component unmounts
+       return () => {
+         window.removeEventListener('resize', handleResize);
+       };
+     }, []);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1,
   };
   return (
-    <div className='w-3/4 m-auto'>
+    <div className='w-full  md:w-3/4 m-auto'>
       <div className='mt-5 mb-3'>
         <Slider {...settings}>
           {slides.map((d, index) => (
             <div className='bg-white h-auto text-black rounded-xl'>
-              <div className='h-56 rounded-t-xl bg-purple-400 flex justify-center items-center'>
+              <div className=' md:h-56 rounded-t-xl bg-purple-400 flex justify-center items-center'>
                 <img
                   src={d.image}
                   alt=''
