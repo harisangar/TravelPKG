@@ -28,9 +28,9 @@ const Explore = () => {
        console.log('Month:', selectedMonth);
      };
   return (
-    <div className='explore-container shadow md:w-min w-full p-1 rounded bg-purple-400 '>
+    <div className='explore-container shadow md:w-min w-full p-1 rounded bg-navtext'>
       <div className='flex flex-col md:flex-row border  '>
-        <div className='flex justify-start  md:justify-center bg-white items-center text-gray-500 hover:text-purple-800 border border-purple-800 md:px-2'>
+        <div className='flex justify-start  md:justify-center bg-white items-center text-gray-500 hover:navtext border border-navtext md:px-2'>
           <span>
             <i className='ri-map-pin-line'></i>
           </span>
@@ -48,7 +48,7 @@ const Explore = () => {
           </select>
         </div>
 
-        <div className='flex justify-start  md:justify-center bg-white md:px-5 items-center border text-gray-500 hover:text-purple-800 border-purple-800 '>
+        <div className='flex justify-start  md:justify-center bg-white md:px-5 items-center border text-gray-500 hover:text-navtext border-navtext '>
           <span>
             <i class='ri-time-line'></i>
           </span>
@@ -61,7 +61,7 @@ const Explore = () => {
             ))}
           </select>
         </div>
-        <div className='flex justify-start md:justify-center bg-white md:px-5 items-center border text-gray-500 hover:text-purple-800 border-purple-800'>
+        <div className='flex justify-start md:justify-center bg-white md:px-5 items-center border text-gray-500 hover:text-navtext border-navtext'>
           <span>
             <i class='ri-calendar-2-line'></i>
           </span>
@@ -74,7 +74,7 @@ const Explore = () => {
             ))}
           </select>
         </div>
-        <div className='px-8 py-2 text-center border w-full bg-purple-800  border-purple-800 text-white'>
+        <div className='px-8 py-2 text-center border w-full bg-navtext  border-navtext text-white'>
           <button onClick={handleExploreClick}>Explore</button>
         </div>
       </div>

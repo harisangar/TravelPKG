@@ -1,24 +1,41 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { travel2 } from '../../img/index';
+import GoogleButton from 'react-google-button';
+import { signInWithPopup } from 'firebase/auth';
+import { googleAuthProvider, auth } from '../../firebase';
 
 function Signup() {
-   const [formData, setFormData] = useState({
-     name: '',
-     email: '',
-     password: '',
-   });
 
-   const { name, email, password } = formData;
+  const handlesignin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleAuthProvider);
+      console.log(result.user.accessToken);
+      localStorage.setItem("token",result.user.accessToken);
+      localStorage.setItem("user",JSON.stringify(result.user));
+      
 
-   const handleChange = (e) => {
-     setFormData({ ...formData, [e.target.name]: e.target.value });
-   };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-   const handleSubmit = (e) => {
-     e.preventDefault();
-     // Add your signup logic here, such as sending the data to an API
-   };
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const { name, email, password } = formData;
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your signup logic here, such as sending the data to an API
+  };
   return (
     <div className='min-h-screen m-2 flex items-center justify-center bg-purple-200'>
       <div className=' flex m-2 md:w-2/4  bg-white rounded-lg shadow-md'>
@@ -86,13 +103,14 @@ function Signup() {
               Sign Up
             </button>
           </form>
-          <div className='mt-4 text-center'>
+          <div className='mt-4 text-center text-sm'>
             <p>
               Already have an account?{' '}
               <Link to='/login' className='text-blue-500'>
                 Sign in
               </Link>
             </p>
+            <div onClick={handlesignin} className='bg-blue-500 text-white text-sm p-2 cursor-pointer rounded'>signup with google</div>
           </div>
         </div>
       </div>

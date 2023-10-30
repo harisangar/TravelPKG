@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Explore from '../shared/explore';
@@ -10,45 +10,8 @@ import Slider from 'react-slick';
 
 function Home() {
 
-  const handleDragStart = (e) => e.preventDefault();
 
-  // const items = [
-  //   <img
-  //     className=' h-[500px] w-full'
-  //     src={img1}
-  //     alt='img'
-  //     onDragStart={handleDragStart}
-  //     role='presentation'
-  //   />,
-  //   <img
-  //     className='h-[500px]  w-full'
-  //     src={img2}
-  //     alt='img'
-  //     onDragStart={handleDragStart}
-  //     role='presentation'
-  //   />,
-  //   <img
-  //     className=' h-[500px] w-full'
-  //     src={img3}
-  //     alt='img'
-  //     onDragStart={handleDragStart}
-  //     role='presentation'
-  //   />,
-  //   <img
-  //     className='h-[500px] w-full'
-  //     src={img4}
-  //     alt='img'
-  //     onDragStart={handleDragStart}
-  //     role='presentation'
-  //   />,
-  //   <img
-  //     className='  h-[500px] w-full'
-  //     src={img5}
-  //     alt='img'
-  //     onDragStart={handleDragStart}
-  //     role='presentation'
-  //   />,
-  // ];
+ 
 
   const items = [
     {image : img1},
@@ -104,7 +67,7 @@ function Home() {
       </div>
       <div className='bg-gray-300 mb-3 mx-3 rounded-lg p-5 flex flex-col justify-center  font-semibold'>
         <div className='flex justify-between md:px-40 items-center'>
-          <h1 className='text-xl md:text-2xl text-purple-800'>
+          <h1 className='text-xl md:text-2xl text-primary'>
             Explore Packages By Themes
           </h1>
           <h1 className='hidden md:block text-sm'>
@@ -114,8 +77,9 @@ function Home() {
             For best packages, call us at 1800-123-5555
           </h1>
         </div>
-
-        <ThemeExplore />
+        <div id='themeexplore'>
+          <ThemeExplore />
+        </div>
       </div>
     </>
   );

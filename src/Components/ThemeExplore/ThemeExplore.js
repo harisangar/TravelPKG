@@ -111,7 +111,7 @@ const ThemeExplore = () => {
         <Slider {...settings}>
           {slides.map((d, index) => (
             <div className='bg-white h-auto text-black rounded-xl'>
-              <div className=' md:h-56 rounded-t-xl bg-purple-400 flex justify-center items-center'>
+              <div className=' md:h-56 rounded-t-xl bg-navtext flex justify-center items-center'>
                 <img
                   src={d.image}
                   alt=''

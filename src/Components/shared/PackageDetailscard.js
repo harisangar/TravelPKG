@@ -1,5 +1,6 @@
 import React from 'react'
 import  {img2} from '../../img/index.js'
+import { Link } from 'react-router-dom';
 
 const PackageDetailscard = ({country}) => {
   return (
@@ -71,7 +72,16 @@ const PackageDetailscard = ({country}) => {
           </div>
         </div>
         <div className='text-sm'>
-          <button className='text-red-500 p-2 m-2'>View Details</button>
+          <Link
+            to={{
+              pathname: '/detailspage',
+              state: {'country': {country}},
+                
+              
+            }}
+          >
+            <button className='text-red-500 p-2 m-2'>View Details</button>
+          </Link>
           <button className='p-2 text-white bg-red-600 rounded'>
             Customize & Get Quotes
           </button>

@@ -2,13 +2,32 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import ThemeCard from '../HolidayThemes/ThemeCard';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { useEffect } from 'react';
 
 function Header() {
+  const user = JSON.parse(localStorage.getItem('user'));
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemtwo, setHoveredItemtwo] = useState(null);
   const [hoveredTheme, setHoveredTheme] = useState(false);
-  const [ismobile,setIsMobile]= useState(false);
+  const [ismobile, setIsMobile] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(user);
+  const [isLoggedOut, setIsLoggedOut] = useState(false);
 
+  
+
+  const handleLogout = async ()=>{
+    try {
+      await signOut(auth);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      setIsLoggedOut(true); 
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   const items = [
     {
       text: 'Honeymoon Packages',
@@ -228,27 +247,27 @@ function Header() {
   const closetheme = () => {
     setHoveredTheme(false);
   };
-
+console.log("user for header",user)
   return (
     <>
       <header className=' hidden lg:block shadow-lg bg-white/30 top-0 rounded-lg pb-1.5 '>
         <nav className='bg-white  mb-1 border-gray-200  py-2.5'>
           <div className='ml-2  flex flex-wrap justify-between items-center mx-auto '>
             <Link to='/'>
-              <h1 className=' shadow text-purple-800 bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
-                <i className=' text-purple-800 ri-riding-line'></i> Travel
+              <h1 className=' shadow text-primary bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
+                <i className=' text-primary ri-riding-line'></i> Travel
                 <span className='text-red-500 '>X</span>
               </h1>
             </Link>
             <div>
               <ul className='flex gap-5 mr-2'>
                 <li>
-                  <NavLink
-                    to='/agent'
+                  <a
+                    href='#themeexplore'
                     className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-purple-700 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-purple-700 lg:p-0`
+                      `block py-2   duration-200 border-b border-navhover ${
+                        isActive ? 'navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
                     }
                   >
                     <div className='flex'>
@@ -257,15 +276,15 @@ function Header() {
                       </span>
                       1800-123-5555
                     </div>
-                  </NavLink>
+                  </a>
                 </li>
                 <li>
                   <NavLink
                     to='agent'
                     className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-purple-700 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-purple-700 lg:p-0 cursor-pointer`
+                      `block py-2   duration-200 border-b border-navhover ${
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0 cursor-pointer`
                     }
                   >
                     <div className='flex'>
@@ -280,9 +299,9 @@ function Header() {
                   <NavLink
                     to='/blog'
                     className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-purple-700 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-purple-700 lg:p-0`
+                      `block py-2   duration-200 border-b border-navhover ${
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
                     }
                   >
                     <div className='flex'>
@@ -298,9 +317,9 @@ function Header() {
                   <NavLink
                     to='/offers'
                     className={({ isActive }) =>
-                      `block py-3   duration-200 border-b border-purple-700 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-purple-700 lg:p-0`
+                      `block py-3   duration-200 border-b border-navhover ${
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
                     }
                   >
                     <div className='flex'>
@@ -315,9 +334,9 @@ function Header() {
                   <NavLink
                     to='/offers'
                     className={({ isActive }) =>
-                      `block py-2 duration-200 border-b border-purple-700 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-purple-700 lg:p-0`
+                      `block py-2 duration-200 border-b border-navhover ${
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
                     }
                   >
                     <div className='flex'>
@@ -329,27 +348,51 @@ function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to='/login'
-                    className={({ isActive }) =>
-                      `block    duration-200  border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
-                    }
-                  >
-                    <div className='px-5 flex border-l-[3px]'>
-                      <span className='pr-1'>
-                        <i class='ri-login-box-line'></i>
-                      </span>
-                      Login
+                  {user ? (
+                    // If a user exists, show the logout div
+                    <div
+                      onClick={handleLogout}
+                      className='cursor-pointer'
+                      // Add your logout div styles here
+                    >
+                      <div className='px-5 flex border-l-[3px]'>Logout</div>
                     </div>
-                  </NavLink>
+                  ) : (
+                    // If there's no user, show an empty placeholder (or you can customize this further)
+                    <NavLink
+                      to='/login'
+                      className={({ isActive }) =>
+                        `block    duration-200  border-gray-100 ${
+                          isActive ? 'text-navhover' : 'text - gray - 700'
+                        } lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`
+                      }
+                    >
+                      <div className='px-5 flex border-l-[3px]'>
+                        <span className='pr-1'>
+                          <i class='ri-login-box-line'></i>
+                        </span>
+                        Login
+                      </div>
+                    </NavLink>
+                  )}
                 </li>
+                {user ? (
+                  <li>
+                    {' '}
+                    <div>
+                      <img
+                        className='h-[35px] rounded-full'
+                        src={user.photoURL}
+                        alt='profile'
+                      />
+                    </div>
+                  </li>
+                ) : null}
               </ul>
             </div>
           </div>
         </nav>
-        <nav className='bg-purple-400 mx-1.5 rounded-lg  shadow border-gray-200 py-2.5'>
+        <nav className='bg-navbg mx-1.5 rounded-lg  shadow border-gray-200 py-2.5'>
           <div className='relative flex flex-wrap justify-between items-center mx-auto '>
             <div>
               <ul className='flex gap-5 ml-2'>
@@ -364,8 +407,8 @@ function Header() {
                       to={`/${item.link}`}
                       className={({ isActive }) =>
                         `block py-2 duration-200 border-b text-white border-gray-100 ${
-                          isActive ? 'text-purple-700' : 'text - gray - 700'
-                        } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                          isActive ? 'text-navhover' : 'text - gray - 700'
+                        } lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`
                       }
                     >
                       {item.text}
@@ -385,8 +428,8 @@ function Header() {
                     to='/holidaydeals'
                     className={({ isActive }) =>
                       `block py-2 duration-200 text-white border-b border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`
                     }
                   >
                     Holiday deals
@@ -397,8 +440,8 @@ function Header() {
                     to='/luxaryhotels'
                     className={({ isActive }) =>
                       `block py-2 duration-200 border-b  text-white border-gray-100 ${
-                        isActive ? 'text-purple-700' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                        isActive ? 'text-navhover' : 'text - gray - 700'
+                      } lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`
                     }
                   >
                     Luxary Hotels
@@ -419,8 +462,8 @@ function Header() {
                       to={`/${item.link}`}
                       className={({ isActive }) =>
                         `block py-2 duration-200 border-b text-white border-gray-100 ${
-                          isActive ? 'text-purple-700' : 'text - gray - 700'
-                        } lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`
+                          isActive ? 'text-navhover' : 'text - gray - 700'
+                        } lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`
                       }
                     >
                       {item.text}
@@ -441,7 +484,7 @@ function Header() {
                   onMouseLeave={() => setHoveredTheme(false)}
                   onClick={close}
                   className={`block py-2 duration-200 cursor-pointer border-b text-white border-gray-100 
-                     lg:hover:bg-transparent lg:border-0 hover:text-purple-700 lg:p-0`}
+                     lg:hover:bg-transparent lg:border-0 hover:text-navhover lg:p-0`}
                 >
                   Holiday Themes
                   {hoveredTheme && (
@@ -449,7 +492,7 @@ function Header() {
                   )}
                 </li>
 
-                <li className='border-2 rounded bg-purple-700 text-white   p-2 '>
+                <li className='border-2 rounded bg-primary text-white   p-2 '>
                   Plan My Holiday
                 </li>
               </ul>
@@ -461,8 +504,8 @@ function Header() {
         <div className='flex justify-between items-center'>
           <div>
             <Link to='/'>
-              <h1 className=' shadow text-purple-800 bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
-                <i className=' text-purple-800 ri-riding-line'></i> Travel
+              <h1 className=' shadow text-primary bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
+                <i className=' text-primary ri-riding-line'></i> Travel
                 <span className='text-red-500 '>X</span>
               </h1>
             </Link>
@@ -480,15 +523,49 @@ function Header() {
               >
                 <i class='ri-close-circle-line'></i>
               </div>
+
+              {user && (
+                <div>
+                  <img
+                    className='h-20 rounded-full'
+                    src={user.photoURL}
+                    alt='profile'
+                  />
+                </div>
+              )}
               <div>
                 <ul className='flex flex-col m-2 '>
-                  <li className='mb-5 py-2 border-b'>Packages</li>
-                  <li className='mb-5 py-2 border-b'>Hotels</li>
-                  <li className='mb-5 py-2 border-b'>Hotels</li>
-                  <li className='mb-5 py-2 border-b'>DestinationGuides</li>
-                  <li className='mb-5 py-2 border-b'>HolidayThremes</li>
-                  <li className='mb-5 py-2 border-b'>HolidayThemes</li>
-                  <li className='mb-5 py-2 border-b'>LuxaryHotels</li>
+                  <Link
+                    to='/honeymoonpackages'
+                    onClick={() => setIsMobile(false)}
+                  >
+                    <li className='mb-5 py-2 border-b'>Packages</li>
+                  </Link>
+                  <Link to='/hotels' onClick={() => setIsMobile(false)}>
+                    <li className='mb-5 py-2 border-b'>Hotels</li>
+                  </Link>
+                  <Link
+                    to='/destinationguide'
+                    onClick={() => setIsMobile(false)}
+                  >
+                    <li className='mb-5 py-2 border-b'>DestinationGuides</li>
+                  </Link>
+                  <Link
+                    to='/holidaypackages'
+                    onClick={() => setIsMobile(false)}
+                  >
+                    <li className='mb-5 py-2 border-b'>HolidayThemes</li>
+                  </Link>
+                  <Link to='/luxaryhotels' onClick={() => setIsMobile(false)}>
+                    <li className='mb-5 py-2 border-b'>LuxaryHotels</li>
+                  </Link>
+                  {user ? (
+                    <div onClick={handleLogout}>LogOut</div>
+                  ) : (
+                    <Link to='/login' onClick={() => setIsMobile(false)}>
+                      <li className='mb-5 py-2 border-b'>login</li>
+                    </Link>
+                  )}
                 </ul>
               </div>
             </div>

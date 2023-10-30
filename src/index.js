@@ -32,6 +32,7 @@ import  WildLifePlace from './Components/HolidayThemes/WildLifePlace';
 import FriendsPlace from './Components/HolidayThemes/FriendsPlace';
 import WaterActivitiesPlace from './Components/HolidayThemes/WaterActivitiesPlace';
 import ReligiousPlace from './Components/HolidayThemes/ReligiousPlace';
+import SinglePackageDetail from './Components/shared/SinglePackageDetail';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -70,6 +71,7 @@ const router = createBrowserRouter(
       <Route path='friends' element={<FriendsPlace />} />
       <Route path='wateractivities' element={<WaterActivitiesPlace />} />
       <Route path='religious' element={<ReligiousPlace />} />
+      <Route path='detailspage' element={<SinglePackageDetail />} />
       <Route path='*' element={<div>page not found</div>} />
     </Route>
   )
