@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
+import React, { useState} from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import { travel2 } from '../../img/index';
 import GoogleButton from 'react-google-button';
 import { signInWithPopup } from 'firebase/auth';
 import { googleAuthProvider, auth } from '../../firebase';
+import { useAuth } from '../../AuthContext';
 
 function Signup() {
-
+const { setIsLoggedIn } = useAuth();
+const navigate=useNavigate();
   const handlesignin = async () => {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
       console.log(result.user.accessToken);
       localStorage.setItem("token",result.user.accessToken);
       localStorage.setItem("user",JSON.stringify(result.user));
+       setIsLoggedIn(true);
+       navigate('/')
       
 
     } catch (error) {

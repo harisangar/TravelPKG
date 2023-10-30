@@ -4,7 +4,8 @@ import Card from '../Card/Card';
 import ThemeCard from '../HolidayThemes/ThemeCard';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { useEffect } from 'react';
+
+import { useAuth } from '../../AuthContext';
 
 function Header() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -12,7 +13,7 @@ function Header() {
   const [hoveredItemtwo, setHoveredItemtwo] = useState(null);
   const [hoveredTheme, setHoveredTheme] = useState(false);
   const [ismobile, setIsMobile] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(user);
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   const [isLoggedOut, setIsLoggedOut] = useState(false);
 
   

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Route,createBrowserRouter,createRoutesFromElements,RouterProvider } from 'react-router-dom';
+import { AuthProvider } from './AuthContext';
 import Layout from './Layout';
 import Home from "./Components/Home/Home"
 import Login from './Components/Login/Login';
@@ -81,7 +82,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
 
