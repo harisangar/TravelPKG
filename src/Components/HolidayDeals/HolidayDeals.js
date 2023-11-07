@@ -1,9 +1,12 @@
 import React from 'react'
+import PackageDetailsCard from "../shared/PackageDetailscard"
 
 const HolidayDeals = () => {
   return (
-    <div className='bg-purple-100 h-80'>
-      <h1>HolidayDeals page .....</h1>
+    <div className='bg-purple-100 '>
+      <PackageDetailsCard />
+      <PackageDetailsCard />
+      <PackageDetailsCard />
     </div>
   );
 }

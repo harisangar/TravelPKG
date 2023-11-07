@@ -6,6 +6,14 @@ const SinglePackageDetail = () => {
   const location = useLocation();
   console.log(location);
   const [selectedMonth, setSelectedMonth] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+    const handlePopup = () => {
+      setShowPopup(true);
+    };
+
+    const handleClosePopup = () => {
+      setShowPopup(false);
+    };
   const months = [
     'January',
     'February',
@@ -20,6 +28,31 @@ const SinglePackageDetail = () => {
     'November',
     'December',
   ];
+   const [from, setFrom] = useState('');
+   const [to, setTo] = useState('');
+   const [selectedDate, setSelectedDate] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+
+   const handleFromChange = (e) => setFrom(e.target.value);
+   const handleToChange = (e) => setTo(e.target.value);
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+    };
+
+    const handlePhoneChange = (e) => {
+      setPhone(e.target.value);
+    };
+
+
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     // Handle login logic here (e.g., API call).
+     console.log('From:', from, 'To:', to);
+   };
+   const handleDateChange = (e) => {
+     setSelectedDate(e.target.value);
+   };
   return (
     <div className='m-5'>
       <div className='flex flex-col lg:flex-row '>
@@ -108,8 +141,117 @@ const SinglePackageDetail = () => {
             </div>
           </div>
           <div className='bg-red-500 font-semibold rounded text-white p-2 text-center'>
-            <button>Customize & Get Quotes</button>
+            <button onClick={handlePopup}>Customize & Get Quotes</button>
           </div>
+          {showPopup && (
+            <div className='popup-card absolute p-2 bg-white lg:w-[500px]  shadow-2xl rounded'>
+              <div className='popup-content'>
+                <div className=' flex justify-end'>
+                  <button
+                    onClick={handleClosePopup}
+                    className='close-button bg-red-500 rounded font-semibold text-white p-2 px-3 m-2  '
+                  >
+                    X
+                  </button>
+                </div>
+                <form onSubmit={handleSubmit} className='p-5'>
+                  <div className='mb-2'>
+                    <label
+                      htmlFor='to'
+                      className='block text-gray-700 font-semibold'
+                    >
+                      To
+                    </label>
+                    <input
+                      type='text'
+                      id='to'
+                      className='w-full p-3 border rounded-md '
+                      placeholder='To'
+                      value={to}
+                      onChange={handleFromChange}
+                      required
+                    />
+                  </div>
+                  <div className='mb-2'>
+                    <label
+                      htmlFor='from'
+                      className='block text-gray-700 font-semibold'
+                    >
+                      From
+                    </label>
+                    <input
+                      type='text'
+                      id='from'
+                      className='w-full p-3 border rounded-md'
+                      placeholder='From'
+                      value={from}
+                      onChange={handleToChange}
+                      required
+                    />
+                  </div>
+                  <div className='date-selection mb-2'>
+                    <label
+                      htmlFor='selectDate'
+                      className='block text-gray-700 font-semibold'
+                    >
+                      Select Date:
+                    </label>
+                    <input
+                      type='date'
+                      id='selectDate'
+                      className='w-full p-3 border rounded-md text-gray-700'
+                      placeholder='Select Date'
+                      value={selectedDate}
+                      required
+                      onChange={handleDateChange}
+                    />
+                  </div>
+                  <div className='email-input mb-2'>
+                    <label
+                      htmlFor='email'
+                      className='block text-gray-700 font-semibold'
+                    >
+                      Email:
+                    </label>
+                    <input
+                      type='email'
+                      id='email'
+                      className='w-full p-3 border rounded-md text-gray-700'
+                      placeholder='Email'
+                      value={email}
+                      required
+                      onChange={handleEmailChange}
+                    />
+                  </div>
+                  <div className='phone-input'>
+                    <label
+                      htmlFor='phone'
+                      className='block text-gray-700 font-semibold'
+                    >
+                      Phone:
+                    </label>
+                    <input
+                      type='tel'
+                      id='phone'
+                      placeholder='Phone No'
+                      className='w-full p-3 border rounded-md text-gray-700'
+                      value={phone}
+                      required
+                      onChange={handlePhoneChange}
+                    />
+                  </div>
+                  <div className='text-center'>
+                    <button
+                      type='submit'
+                      className='px-4 py-2 bg-blue-500 mt-3 text-white rounded-md hover:bg-blue-600'
+                    >
+                      Next
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

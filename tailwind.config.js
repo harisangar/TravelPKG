@@ -9,6 +9,9 @@ module.exports = {
         navhover: '#8E24AA',
         navtext: '#8E24AA',
       },
+      fontFamily:{
+        worksans:"'worksans'"
+      }
     },
   },
   plugins: [],

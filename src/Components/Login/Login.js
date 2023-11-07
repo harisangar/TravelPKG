@@ -17,15 +17,18 @@ function Login() {
   };
   return (
     <div className='min-h-screen  m-2 flex  items-center justify-center bg-purple-200'>
-      <div className=' flex  m-2 md:w-2/4 bg-white rounded-lg shadow-md'>
-        <div className='md:w-2/4 rounded bg-purple-500 px-10 flex items-center'>
-          {/* <img src={travel} alt='travel' /> */}
-        </div>
+      <div className=' flex  m-2 md:w-2/4 lg:w-[500px] bg-white rounded-lg shadow-md'>
+        {/* <div className='md:w-2/4 rounded bg-purple-500 px-10 flex items-center'>
+          <img src={travel} alt='travel' />
+        </div> */}
         <div className='p-10 w-full '>
           <h2 className='text-2xl font-semibold text-center mb-4'>Sign In</h2>
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
-              <label htmlFor='email' className='block text-gray-700'>
+              <label
+                htmlFor='email'
+                className='block text-gray-700 font-semibold'
+              >
                 Email
               </label>
               <input
@@ -39,7 +42,10 @@ function Login() {
               />
             </div>
             <div className='mb-6'>
-              <label htmlFor='password' className='block text-gray-700'>
+              <label
+                htmlFor='password'
+                className='block text-gray-700 font-semibold'
+              >
                 Password
               </label>
               <input
@@ -68,7 +74,6 @@ function Login() {
                 </Link>
               </p>
             </div>
-           
           </form>
         </div>
       </div>

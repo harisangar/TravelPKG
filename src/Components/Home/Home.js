@@ -52,7 +52,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className=' flex flex-col items-center mt-5'>
+      <div className=' flex flex-col items-center mt-5 font-worksans'>
         <h1 className='font-bold  text-xl md:text-5xl '>Customize & Book</h1>
         <h1 className='font-bold text-xl md:text-3xl'>
           Amazing Holiday Packages

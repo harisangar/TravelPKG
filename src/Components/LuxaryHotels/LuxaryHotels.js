@@ -1,9 +1,12 @@
 import React from 'react'
+import HotelCard from '../Card/HotelCard'
 
 const LuxaryHotels = () => {
   return (
-    <div className='bg-purple-100 h-80'>
-      <h1>LuxaryHotels page ....</h1>
+    <div className='bg-white '>
+      <HotelCard />
+      <HotelCard />
+      <HotelCard />
     </div>
   );
 }

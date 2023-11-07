@@ -42,10 +42,10 @@ const navigate=useNavigate();
   };
   return (
     <div className='min-h-screen m-2 flex items-center justify-center bg-purple-200'>
-      <div className=' flex m-2 md:w-2/4  bg-white rounded-lg shadow-md'>
-        <div className='md:w-2/4 rounded p-5 bg-purple-500 flex items-center '>
-          {/* <img src={travel2} alt='travel' /> */}
-        </div>
+      <div className=' flex m-2 md:w-2/4 lg:w-[500px] bg-white rounded-lg shadow-md'>
+        {/* <div className='md:w-2/4 rounded p-5 bg-purple-500 flex items-center '>
+          <img src={travel2} alt='travel' />
+        </div> */}
         <div className='p-10  w-full rounded-lg'>
           <h2 className='text-2xl font-semibold text-center mb-4'>Sign Up</h2>
           <form onSubmit={handleSubmit}>
@@ -114,7 +114,12 @@ const navigate=useNavigate();
                 Sign in
               </Link>
             </p>
-            <div onClick={handlesignin} className='bg-blue-500 text-white text-sm p-2 cursor-pointer rounded'>signup with google</div>
+            <div className='flex justify-center mt-2'>
+              <GoogleButton
+                onClick={handlesignin}
+                
+              />
+            </div>
           </div>
         </div>
       </div>

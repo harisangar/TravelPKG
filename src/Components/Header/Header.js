@@ -262,57 +262,9 @@ console.log("user for header",user)
             </Link>
             <div>
               <ul className='flex gap-5 mr-2'>
-                <li>
-                  <a
-                    href='#themeexplore'
-                    className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-navhover ${
-                        isActive ? 'navhover' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
-                    }
-                  >
-                    <div className='flex'>
-                      <span className='pr-1'>
-                        <i class='ri-phone-line'></i>
-                      </span>
-                      1800-123-5555
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <NavLink
-                    to='agent'
-                    className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-navhover ${
-                        isActive ? 'text-navhover' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0 cursor-pointer`
-                    }
-                  >
-                    <div className='flex'>
-                      <span className='pr-1'>
-                        <i class='ri-account-pin-circle-line'></i>
-                      </span>
-                      Travel Agent
-                    </div>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to='/blog'
-                    className={({ isActive }) =>
-                      `block py-2   duration-200 border-b border-navhover ${
-                        isActive ? 'text-navhover' : 'text - gray - 700'
-                      } lg:hover:bg-transparent lg:border-0  hover:text-navhover lg:p-0`
-                    }
-                  >
-                    <div className='flex'>
-                      <span className='pr-1'>
-                        <i class='ri-booklet-line'></i>
-                      </span>
-                      Blog
-                    </div>
-                  </NavLink>
-                </li>
+                
+               
+                
 
                 <li>
                   <NavLink
@@ -501,8 +453,8 @@ console.log("user for header",user)
           </div>
         </nav>
       </header>
-      <div className='lg:hidden relative  m-2'>
-        <div className='flex justify-between items-center'>
+      <div className='lg:hidden relative  m-2  '>
+        <div className='flex justify-between items-center '>
           <div>
             <Link to='/'>
               <h1 className=' shadow text-primary bg-white px-7 py-1.5  rounded-lg tracking-wide ml-2 text-2xl'>
@@ -517,54 +469,80 @@ console.log("user for header",user)
         </div>
         <div className=''>
           {ismobile && (
-            <div className=' bg-white z-[99999] absolute top-0 left-0  w-full '>
+            <div className=' bg-white z-[99999] absolute top-0 left-0  w-full shadow '>
               <div
-                className='text-[30px] text-red-500 flex justify-end'
+                className='text-[30px] text-red-500 flex justify-end mr-1'
                 onClick={() => setIsMobile(false)}
               >
                 <i class='ri-close-circle-line'></i>
               </div>
 
               {user && (
-                <div>
+                <div className='flex flex-col justify-center items-center mb-2'>
                   <img
-                    className='h-20 rounded-full'
+                    className='h-20 ml-2 rounded-full'
                     src={user.photoURL}
                     alt='profile'
                   />
+                  <span className='ml-2 font-semibold uppercase'>
+                    {user.displayName}
+                  </span>
                 </div>
               )}
               <div>
                 <ul className='flex flex-col m-2 '>
                   <Link
-                    to='/honeymoonpackages'
+                    to='/honeymoonpackages/Kerala'
                     onClick={() => setIsMobile(false)}
                   >
-                    <li className='mb-5 py-2 border-b'>Packages</li>
+                    <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                      <i class='ri-inbox-unarchive-line '></i>
+                      <li className='ml-2 font-semibold'>Packages</li>
+                    </div>
                   </Link>
-                  <Link to='/hotels' onClick={() => setIsMobile(false)}>
-                    <li className='mb-5 py-2 border-b'>Hotels</li>
+                  <Link to='/hotels/Kerala' onClick={() => setIsMobile(false)}>
+                    <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                      <i class='ri-hotel-line'></i>
+                      <li className='ml-2 font-semibold'>Hotels</li>
+                    </div>
                   </Link>
                   <Link
                     to='/destinationguide'
                     onClick={() => setIsMobile(false)}
                   >
-                    <li className='mb-5 py-2 border-b'>DestinationGuides</li>
+                    <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                      <i class='ri-wallet-line'></i>
+                      <li className='ml-2 font-semibold'>DestinationGuides</li>
+                    </div>
                   </Link>
                   <Link
-                    to='/holidaypackages'
+                    to='/holidaypackages/Kerala'
                     onClick={() => setIsMobile(false)}
                   >
-                    <li className='mb-5 py-2 border-b'>HolidayThemes</li>
+                    <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                      <i class='ri-rainbow-line'></i>
+                      <li className='ml-2 font-semibold'>HolidayThemes</li>
+                    </div>
                   </Link>
                   <Link to='/luxaryhotels' onClick={() => setIsMobile(false)}>
-                    <li className='mb-5 py-2 border-b'>LuxaryHotels</li>
+                    <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                      <i class='ri-hotel-bed-line'></i>
+                      <li className='ml-2 font-semibold'>LuxaryHotels</li>
+                    </div>
                   </Link>
                   {user ? (
-                    <div onClick={handleLogout}>LogOut</div>
+                    <div onClick={handleLogout}>
+                      <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                        <i class='ri-logout-box-line'></i>
+                        <span className='ml-2 font-semibold'>LogOut</span>
+                      </div>
+                    </div>
                   ) : (
                     <Link to='/login' onClick={() => setIsMobile(false)}>
-                      <li className='mb-5 py-2 border-b'>login</li>
+                      <div className='flex mb-5 px-2 py-5 border-b shadow'>
+                        <i class='ri-login-box-line'></i>
+                        <span className='ml-2 font-semibold'>LogIn</span>
+                      </div>
                     </Link>
                   )}
                 </ul>
